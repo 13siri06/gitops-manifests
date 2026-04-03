@@ -4,13 +4,14 @@ metadata:
   name: order-service
   namespace: argocd
 spec:
+  project: default
+  source:
+    repoURL: https://github.com/13siri06/gitops-manifests.git
+    targetRevision: main
+    path: apps/order-service
   destination:
     server: https://kubernetes.default.svc
     namespace: default
-  source:
-    repoURL: https://github.com/<13siri06>/gitops-manifests.git
-    targetRevision: HEAD
-    path: apps/order-service
   syncPolicy:
     automated:
       prune: true
